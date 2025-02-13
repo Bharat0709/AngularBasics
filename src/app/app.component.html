@@ -1,0 +1,13 @@
+<h2>Parent Component</h2>
+<p>Sending message to child: "{{ parentMessage }}"</p>
+
+<!-- Passing data to child using [message] -->
+<app-hello
+  [message]="parentMessage"
+  (messageUpdated)="handleMessageUpdate($event)"
+></app-hello>
+
+<p class="mt-4 text-lg text-gray-600">
+  Message received from child: "{{ childMessage }}"
+</p>
+<app-counter></app-counter>

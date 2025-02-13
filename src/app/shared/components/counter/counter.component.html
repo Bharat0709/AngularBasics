@@ -1,0 +1,48 @@
+<div class="flex flex-col items-center justify-center p-6 min-h-screen">
+  <div class="min-w-md">
+    <input
+      [(ngModel)]="newMessage"
+      class="p-2 m-2 w-9/12 border rounded-lg"
+      type="text"
+      placeholder="Add New Message"
+    />
+    <button
+      (click)="addMessage()"
+      class="rounded-xl cursor-pointer text-white px-4 p-2 bg-sky-800"
+    >
+      Add
+    </button>
+  </div>
+
+  <!-- Card Container -->
+  <div
+    class="bg-white border border-gray-300 rounded-2xl p-6 min-w-md max-w-md text-center"
+  >
+    <!-- Message Display -->
+    <p class="mt-4 text-lg text-gray-600 min-h-[60px]">{{ currMessage }}</p>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between mt-6">
+      <button
+        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition disabled:bg-gray-300"
+        (click)="prevMessage()"
+        [disabled]="currCount === 0"
+      >
+        ⬅
+      </button>
+
+      <button
+        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition disabled:bg-gray-300"
+        (click)="nextMessage()"
+        [disabled]="currCount === messages.length - 1"
+      >
+        ➡
+      </button>
+    </div>
+
+    <!-- Status Indicator -->
+    <p class="mt-4 text-sm text-gray-500">
+      Message {{ currCount + 1 }} of {{ messages.length }}
+    </p>
+  </div>
+</div>
